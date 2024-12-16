@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- INTEGER AUTO INCREMENT-->
+    <property name="id_auto_increment" value="bigint auto_increment" dbms="mysql,h2"/>
+    <property name="id_auto_increment" value="bigint" dbms="mssql"/>
+    <property name="id_auto_increment" value="bigserial" dbms="postgresql"/>
+    <property name="id_auto_increment" value="number(10)" dbms="oracle"/>
+
+    <!-- INTEGER/LONG-->
+    <property name="integer" value="integer" dbms="mysql,h2"/>
+    <property name="integer" value="int" dbms="mssql"/>
+    <property name="integer" value="integer" dbms="postgresql"/>
+    <property name="integer" value="integer" dbms="oracle"/>
+
+    <property name="biginteger" value="bigint" dbms="mysql,h2"/>
+    <property name="biginteger" value="bigint" dbms="mssql"/>
+    <property name="biginteger" value="bigint" dbms="postgresql"/>
+    <property name="biginteger" value="bigint" dbms="oracle"/>
+
+    <!-- DOUBLE/FLOAT-->
+    <property name="float" value="float" dbms="mysql,h2"/>
+    <property name="float" value="float" dbms="mssql"/>
+    <property name="float" value="float" dbms="postgresql"/>
+    <property name="float" value="float" dbms="oracle"/>
+
+    <property name="decimal" value="decimal(10, 2)" dbms="mysql,h2"/>
+    <property name="decimal" value="decimal" dbms="mssql"/>
+    <property name="decimal" value="decimal" dbms="postgresql"/>
+    <property name="decimal" value="number" dbms="oracle"/>
+
+    <!-- BOOLEAN-->
+    <property name="boolean" value="tinyint(1)" dbms="mysql"/>
+    <property name="boolean" value="boolean" dbms="h2"/>
+    <property name="boolean" value="bit" dbms="mssql"/>
+    <property name="boolean" value="boolean" dbms="postgresql"/>
+    <property name="boolean" value="boolean" dbms="oracle"/>
+
+    <!-- DATE-->
+    <property name="date" value="date" dbms="mysql,h2"/>
+    <property name="date" value="date" dbms="mssql"/>
+    <property name="date" value="date" dbms="postgresql"/>
+    <property name="date" value="date" dbms="oracle"/>
+
+    <property name="datetime" value="datetime" dbms="mysql"/>
+    <property name="datetime" value="timestamp" dbms="h2"/>
+    <property name="datetime" value="datetime2" dbms="mssql"/>
+    <property name="datetime" value="timestamp" dbms="postgresql"/>
+    <property name="datetime" value="timestamp" dbms="oracle"/>
+
+    <!-- STRING-->
+    <property name="uuid" value="varchar(36)" dbms="mysql,h2"/>
+    <property name="uuid" value="uniqueidentifier" dbms="mssql"/>
+    <property name="uuid" value="uuid" dbms="postgresql"/>
+    <property name="uuid" value="raw(16)" dbms="oracle"/>
+
+    <property name="text" value="longtext" dbms="mysql"/>
+    <property name="text" value="clob" dbms="h2"/>
+    <property name="text" value="text" dbms="mssql"/>
+    <property name="text" value="text" dbms="postgresql"/>
+    <property name="text" value="clob" dbms="oracle"/>
+
+    <property name="varchar" value="varchar(255)" dbms="mysql,h2"/>
+    <property name="varchar" value="varchar" dbms="mssql"/>
+    <property name="varchar" value="character varying" dbms="postgresql"/>
+    <property name="varchar" value="varchar2" dbms="oracle"/>
+
+    <!-- DEFAULT VALUE-->
+    <property name="default_uuid_random" value="UUID()" dbms="mysql,h2"/>
+    <property name="default_uuid_random" value="NEWID()" dbms="mssql"/>
+    <property name="default_uuid_random" value="gen_random_uuid()" dbms="postgresql"/>
+
+    <property name="default_boolean_false" value="false" dbms="mysql,h2"/>
+    <property name="default_boolean_false" value="0" dbms="oracle"/>
+    <property name="default_boolean_false" value="0" dbms="mssql"/>
+    <property name="default_boolean_false" value="false" dbms="postgresql"/>
+    <property name="default_boolean_true" value="true" dbms="mysql,h2"/>
+    <property name="default_boolean_true" value="1" dbms="oracle"/>
+    <property name="default_boolean_true" value="1" dbms="mssql"/>
+    <property name="default_boolean_true" value="true" dbms="postgresql"/>
+
+    <property name="default_datetime_now" value="CURRENT_TIMESTAMP()" dbms="mysql,h2"/>
+    <property name="default_datetime_now" value="sysdate" dbms="oracle"/>
+    <property name="default_datetime_now" value="getdate()" dbms="mssql"/>
+    <property name="default_datetime_now" value="current_timestamp" dbms="postgresql"/>
+
+    <!-- TABLES-->
+    <property name="current_schema" value=""/>
+    <includeAll path="classpath:/db/liquibase/ddl/"/>
+    <includeAll path="classpath:/db/liquibase/dml/"/>
+
+</databaseChangeLog>

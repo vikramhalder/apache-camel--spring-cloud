@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+
+package com.example.user.gen.grpc;
+option java_multiple_files = true;
+
+message Empty {
+}
+
+message BaseResponse {
+  string statusCode = 1;
+  string statusMessage = 2;
+  google.protobuf.Any data = 3;
+}

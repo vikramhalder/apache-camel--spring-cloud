@@ -63,6 +63,14 @@ public class JacksonUtil {
         }
         return null;
     }
+    public static byte[] objectToByte(Object object) {
+        try {
+            return objectMapper().writeValueAsBytes(object);
+        } catch (Exception ex) {
+            log.warn("JacksonUtil.objectToJson: {}", ex.getMessage());
+        }
+        return null;
+    }
 
 }
 

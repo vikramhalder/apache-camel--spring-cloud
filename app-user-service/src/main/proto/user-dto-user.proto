@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "user-dto.proto";
+
+package com.example.user.gen.grpc;
+option java_multiple_files = true;
+
+
+message UserFilterRequest {
+  int64  id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message UserIdRequest {
+  int64  id = 1;
+}
+
+message UserCreateRequest {
+  string name = 2;
+  string email = 3;
+}
+
+message UserResponse {
+  int64 id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message ItemUserResponse {
+  repeated UserResponse users = 1;
+}
