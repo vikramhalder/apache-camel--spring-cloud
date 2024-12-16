@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package com.example.user.gen.grpc;
+
+message Empty {
+}
+
+message ItemUserResponse {
+  repeated UserResponse users = 1;
+}
+
+message UserFilterRequest {
+  int64  id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message UserIdRequest {
+  int64  id = 1;
+}
+
+message UserCreateRequest {
+  string name = 2;
+  string email = 3;
+}
+
+message UserResponse {
+  int64 id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+
+service UserServiceProtoRoute {
+  rpc userGetById (UserIdRequest) returns (UserResponse);
+  rpc userSave (UserCreateRequest) returns (UserResponse);
+  rpc userGetAll (UserFilterRequest) returns (ItemUserResponse);
+}
