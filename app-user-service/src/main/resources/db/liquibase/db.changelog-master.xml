@@ -88,7 +88,7 @@
     <property name="default_datetime_now" value="current_timestamp" dbms="postgresql"/>
 
     <!-- TABLES-->
-    <property name="current_schema" value=""/>
+    <property name="current_schema" value="grpc"/>
     <includeAll path="classpath:/db/liquibase/ddl/"/>
     <includeAll path="classpath:/db/liquibase/dml/"/>
 

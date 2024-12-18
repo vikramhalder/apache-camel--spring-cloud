@@ -7,18 +7,17 @@ spring:
   application:
     name: user-service
   datasource:
-    url: 'jdbc:h2:file:${user.home}/.grpc/${spring.application.name}/v100'
-    username: username
-    password: password
-    driver-class-name: org.h2.Driver
+    url: 'jdbc:postgresql://172.16.229.217:5432/microibdb?currentSchema=grpc'
+    username: 'microib'
+    password: 'microib@23'
   jpa:
-    database: h2
-    database-platform: 'org.hibernate.dialect.H2Dialect'
+    database: postgresql
+    database-platform: 'org.hibernate.dialect.PostgreSQLDialect'
     hibernate:
       ddl-auto: validate
     properties:
       hibernate:
-        default_schema: ~
+        default_schema: 'grpc'
   liquibase:
     enabled: true
     url: ${spring.datasource.url}

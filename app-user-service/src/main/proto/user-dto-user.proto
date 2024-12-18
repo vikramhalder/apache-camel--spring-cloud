@@ -6,27 +6,27 @@ package com.example.user.gen.grpc;
 option java_multiple_files = true;
 
 
-message UserFilterRequest {
+message GrpcUserFilterRequest {
   int64  id = 1;
   string name = 2;
   string email = 3;
 }
 
-message UserIdRequest {
+message GrpcUserIdRequest {
   int64  id = 1;
 }
 
-message UserCreateRequest {
+message GrpcUserCreateRequest {
   string name = 2;
   string email = 3;
 }
 
-message UserResponse {
+message GrpcUserResponse {
   int64 id = 1;
   string name = 2;
   string email = 3;
 }
 
-message ItemUserResponse {
-  repeated UserResponse users = 1;
+message GrpcItemUserResponse {
+  repeated GrpcUserResponse users = 1;
 }

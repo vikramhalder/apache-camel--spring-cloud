@@ -1,6 +1,8 @@
 package com.example.grpc.user.presenter.grpc;
 
-import com.example.user.gen.grpc.*;
+import com.example.user.gen.grpc.GrpcItemUserResponse;
+import com.example.user.gen.grpc.GrpcUserFilterRequest;
+import com.example.user.gen.grpc.UserServiceProtoRouteGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
@@ -18,13 +20,13 @@ class UserPresenterImplTest {
     }
 
     public void getAll() {
-        UserFilterRequest request = UserFilterRequest.newBuilder().setId(10L).setName("Test").build();
+        GrpcUserFilterRequest request = GrpcUserFilterRequest.newBuilder().setId(10L).setName("Test").build();
         CountDownLatch latch = new CountDownLatch(1);
 
-        final StreamObserver<ItemUserResponse> responseObserver = new StreamObserver<ItemUserResponse>() {
+        final StreamObserver<GrpcItemUserResponse> responseObserver = new StreamObserver<>() {
             @Override
-            public void onNext(ItemUserResponse value) {
-                log.info("Received Users: {}",value);
+            public void onNext(GrpcItemUserResponse value) {
+                log.info("Received Users: {}", value);
             }
 
             @Override
